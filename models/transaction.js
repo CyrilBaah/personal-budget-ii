@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Transaction.init({
-    date: DataTypes.STRING,
+    date: {
+      type: DataTypes.STRING,
+      defaultValue: DataTypes.DATE
+    },
     paymentAmount: DataTypes.STRING,
     paymentRecipient: DataTypes.STRING,
     envelopeId: DataTypes.INTEGER

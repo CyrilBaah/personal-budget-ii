@@ -5,8 +5,10 @@ require('dotenv').config();
 app.use(express.json());
 
 const envelopeRoutes = require('./routes/envelope');
+const transactionRoutes = require('./routes/transaction');
 
 app.use(envelopeRoutes);
+app.use(transactionRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, async () => {
