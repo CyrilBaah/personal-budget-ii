@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const { sequelize } = require('./models');
 require('dotenv').config();
+app.use(express.json());
 
 const envelopeRoutes = require('./routes/envelope');
 
