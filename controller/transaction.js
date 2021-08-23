@@ -25,7 +25,7 @@ exports.createTransaction = async (req, res) => {
 
 exports.getTransaction = async (req, res) => {
     try {
-        const transactions = await Transaction.findAll();
+        const transactions = await Transaction.findAll({ include: 'envelopes' });
         res.status(200).json({ success: true, message: transactions });
     } catch (error) {
         console.log(error);
