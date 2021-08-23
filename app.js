@@ -3,6 +3,10 @@ const app = express();
 const { sequelize } = require('./models');
 require('dotenv').config();
 
+const envelopeRoutes = require('./routes/envelope');
+
+app.use(envelopeRoutes);
+
 const PORT = process.env.PORT;
 app.listen(PORT, async () => {
     console.log(`Server running on http://localhost:${PORT}`);
