@@ -6,6 +6,8 @@ router.post('/api/envelopes', envelopeController.createEnvelope);
 router.get('/api/envelopes', envelopeController.getAllEnvelope);
 router.put('/api/envelopes/:id', envelopeController.updateEnvelope);
 router.delete('/api/envelopes/:id', envelopeController.deleteEnvelope);
+router.put('/api/envelopes/:id/withdraw/:amount', envelopeController.withdrawFromEnvelope);
+
 
 
 
