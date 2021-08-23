@@ -38,7 +38,7 @@ exports.updateTransaction = async (req, res) => {
         const { id } = req.params;
         const { description, paymentAmount, paymentRecipient, envelopeId } = req.body;
         const transaction = await Transaction.findOne({ where: { id } });
-        if(transaction) {
+        if (transaction) {
                 transaction.description = description;
                 transaction.paymentAmount = paymentAmount;
                 transaction.paymentRecipient = paymentRecipient;
@@ -47,6 +47,21 @@ exports.updateTransaction = async (req, res) => {
             return res.status(201).json({ success: true, message: transaction });
         }
         return res.status(400).json({ success: false, message: `Transaction with id:${envelopeId} doesn't exist` });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
+}
+
+exports.deleteTransaction = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const transaction = await Transaction.findOne({ where: { id } });
+        if (transaction) {
+            transaction.destroy();
+            return res.status(204).json({ success: false, message: `Transaction with id:${id} doesn't exist` });
+        }
+        return res.status(400).json({ success: false, message: `Transaction with id:${id} doesn't exist` });
     } catch (error) {
         console.log(error);
         res.status(400).json({ success: false, message: error });
