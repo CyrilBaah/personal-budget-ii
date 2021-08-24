@@ -3,6 +3,11 @@ const app = express();
 const { sequelize } = require('./models');
 require('dotenv').config();
 app.use(express.json());
+const path = require('path')
+
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
 
 const swaggerUI = require('swagger-ui-express');
 const swaggerJsDoc = require('swagger-jsdoc');
