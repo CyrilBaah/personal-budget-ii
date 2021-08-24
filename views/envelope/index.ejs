@@ -1,0 +1,25 @@
+<%- include('../includes/head.ejs') %>
+
+<body>            
+            <div class="products">
+                <div class="message">
+                    <p id="msg">Item has been added successfully</p>
+                </div>
+
+                <form class="product-form" action="/api/envelopes" method="POST">
+                    <input type="text" name="category" placeholder="Category Name">
+                    <input type="number" name="totalAmount" placeholder="total Amount">
+                    <input type="number" name="spendingLimit" placeholder="Spending Limit">
+                    <br><br>
+                    <div class="update-button">
+                        <button id="submitBtn">Submit</button>         
+                    </div>
+                </form>
+        </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
