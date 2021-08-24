@@ -3,6 +3,7 @@ const app = express();
 const { sequelize } = require('./models');
 require('dotenv').config();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 const path = require('path')
 
 app.set('views', path.join(__dirname, 'views'));

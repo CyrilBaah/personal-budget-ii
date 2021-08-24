@@ -13,6 +13,7 @@ exports.createEnvelope = async (req, res) => {
                 totalAmount,
                 spendingLimit
             });
+            res.redirect('/');
         return res.status(201).json({ success: true, message: envelope });
         }
         return res.status(400).json({ success: false, message: `Envelope with Category Name:${category} already exist` });
