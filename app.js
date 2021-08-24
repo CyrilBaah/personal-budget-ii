@@ -39,9 +39,11 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpecification));
 
 const envelopeRoutes = require('./routes/envelope');
 const transactionRoutes = require('./routes/transaction');
+const indexRoutes = require('./routes/index');
 
 app.use(envelopeRoutes);
 app.use(transactionRoutes);
+app.use(indexRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, async () => {
