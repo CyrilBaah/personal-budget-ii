@@ -1,8 +1,43 @@
 <%- include('../includes/head.ejs') %>
 
 <body>
-    
+    <div class="main">
+        <div class="topbar">
+            <h2>Dashboard</h2>
+            <div class="user">
+                <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg"
+                    alt="">
+            </div>
+        </div>
+        <br>
 
+        <div class="products-container">
+            <div class="products">
+                <table>
+                    <tbody id="productDetails">
+                        <% if( envelopes.length > 0) { %>
+                        <div class="container">
+                            <table class="w3-table">
+                                <tr>
+                                    <th>Envelope Category</th>
+                                    <th>Total Amount</th>
+                                    <th>Spending Limit</th>
+                                </tr>
+                                <tr>
+                                    <% for(let envelope of envelopes)  { %>
+                                    <td><%= envelope.category %></td>
+                                    <td><%= envelope.totalAmount %></td>
+                                    <td><%= envelope.spendingLimit %></td>
+                                </tr>
+                                <% } %>
+                                <% }  else {%>
+                                <h1>You have no envelopes yet!</h1>
+                                <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

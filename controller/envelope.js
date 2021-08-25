@@ -13,7 +13,6 @@ exports.createEnvelope = async (req, res) => {
                 totalAmount,
                 spendingLimit
             });
-            res.redirect('/');
         return res.status(201).json({ success: true, message: envelope });
         }
         return res.status(400).json({ success: false, message: `Envelope with Category Name:${category} already exist` });
@@ -26,7 +25,7 @@ exports.createEnvelope = async (req, res) => {
 exports.getAllEnvelope = async (req, res) => {
     try {
         const envelopes = await Envelope.findAll();
-        res.status(200).json({ success:true, message: envelopes })
+        res.status(200).json({ success:true, message: envelopes });
     } catch (error) {
         console.log(error);
         res.status(404).json({ success: false, message: error });

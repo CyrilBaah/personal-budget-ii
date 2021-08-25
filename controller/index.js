@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const { Envelope } = require('../models');
 
 exports.getHomePage = async (req, res) => {
     res.render('envelope/index', {
@@ -9,10 +10,36 @@ exports.getHomePage = async (req, res) => {
     });
 }
 
+exports.createEnvelope = async (req, res) => {
+    try {
+        const { category, totalAmount, spendingLimit } = req.body;
+        const envelope = Envelope.findOne({ where: { category: category} });
+        if(!envelope) {
+            const envelope = await Envelope.create({
+                category,
+                totalAmount,
+                spendingLimit
+            });
+            res.redirect('/');
+        }
+        res.redirect('/');
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
+}
+
 exports.getEnvelopes = async (req, res) => {
-    res.render('envelope/get', {
-        title: 'Envelope Budgeting API',
-        path: '/get',
-        pageName: 'Get all envelopes'
-    });
+    try {
+        const envelopes = await Envelope.findAll();
+        res.render('envelope/get', {
+            title: 'Envelope Budgeting API',
+            path: '/get',
+            pageName: 'Get all envelopes',
+            envelopes: envelopes
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
 }
