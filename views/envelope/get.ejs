@@ -3,35 +3,40 @@
 <%- include('../includes/dashboard.ejs') %>
 
 <br>
-
-
-        <div class="products-container">
-            <div class="products">
-                <table>
-                    <tbody id="productDetails">
-                        <% if( envelopes.length > 0) { %>
-                        <div class="container">
-                            <table class="w3-table">
-                                <tr>
-                                    <th>Envelope Category</th>
-                                    <th>Total Amount</th>
-                                    <th>Spending Limit</th>
-                                </tr>
-                                <tr>
-                                    <% for(let envelope of envelopes)  { %>
-                                    <td><%= envelope.category %></td>
-                                    <td><%= envelope.totalAmount %></td>
-                                    <td><%= envelope.spendingLimit %></td>
-                                </tr>
-                                <% } %>
-                                <% }  else {%>
-                                <h1>You have no envelopes yet!</h1>
-                                <% } %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="products-container">
+    <div class="products">
+        <table>
+            <tbody id="productDetails">
+                <% if( envelopes.length > 0) { %>
+                <div class="container">
+                    <table class="w3-table">
+                        <tr>
+                            <th>Envelope Category</th>
+                            <th>Total Amount</th>
+                            <th>Spending Limit</th>
+                            <th>Action</th>
+                        </tr>
+                        <br>
+                        <tr>
+                            <% for(let envelope of envelopes)  { %>
+                            <td><%= envelope.category %></td>
+                            <td><%= envelope.totalAmount %></td>
+                            <td><%= envelope.spendingLimit %></td>
+                            <td>
+                                <form action="/delete-envelope/<%= envelope.id %>/" method="post">
+                                    <button id="submitBtn" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                        <% }  else {%>
+                        <h1>You have no envelopes yet!</h1>
+                        <% } %>
+            </tbody>
+        </table>
     </div>
+</div>
+</div>
 </body>
 
 </html>

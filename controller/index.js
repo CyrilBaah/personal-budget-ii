@@ -74,3 +74,18 @@ exports.updateEnvelope = async (req, res) => {
         res.status(400).json({ success: false, message: error });
     }
 }
+
+exports.deleteEnvelope = async (req, res) => {
+    try {
+        const { envelopeId } = req.params;
+        const envelope = await Envelope.findOne({ where: { id: envelopeId } });
+        if(envelope) {
+            envelope.destroy();
+            res.redirect('/get-envelopes');
+        }
+        return res.status(400).json({ success: false, message: `Envelope with id:${envelopeId} doesn't exist` });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
+}

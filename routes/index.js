@@ -6,8 +6,9 @@ router.get('/', indexController.getHomePage);
 router.post('/create-envelope', indexController.createEnvelope);
 router.get('/get-envelopes', indexController.getEnvelopes);
 router.get('/get-updateenvelope', indexController.getUpdateEnvelopes);
+router.post('/update-envelope', indexController.updateEnvelope);
+router.post('/delete-envelope/:envelopeId', indexController.deleteEnvelope);
 
-router.post('/update-envelope/', indexController.updateEnvelope);
 
 
 
