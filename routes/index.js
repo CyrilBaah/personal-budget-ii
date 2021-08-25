@@ -9,9 +9,4 @@ router.get('/get-updateenvelope', indexController.getUpdateEnvelopes);
 router.post('/update-envelope', indexController.updateEnvelope);
 router.post('/delete-envelope/:envelopeId', indexController.deleteEnvelope);
 
-
-
-
-
-
 module.exports = router;

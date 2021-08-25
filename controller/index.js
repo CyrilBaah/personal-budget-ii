@@ -14,7 +14,7 @@ exports.createEnvelope = async (req, res) => {
     try {
         const { category, totalAmount, spendingLimit } = req.body;
         const envelope = Envelope.findOne({ where: { category: category} });
-        if(!envelope) {
+        if(envelope) {
             const envelope = await Envelope.create({
                 category,
                 totalAmount,
