@@ -1,21 +1,14 @@
 <%- include('../includes/head.ejs') %>
+<%- include('../includes/dashboard.ejs') %>
 
-<body>            
-    <div class="main">
-        <div class="topbar">
-            <div class="toggle" onclick="toggleMenu();"><i class="zmdi zmdi-menu"></i></div>
-            <h2><%= pageName %></h2>
-            <div class="user">
-                <img src="https://1.bp.blogspot.com/-vhmWFWO2r8U/YLjr2A57toI/AAAAAAAACO4/0GBonlEZPmAiQW4uvkCTm5LvlJVd_-l_wCNcBGAsYHQ/s16000/team-1-2.jpg"
-                    alt="">
-            </div>
-        </div>
+
+<br>
 
         <div class="products">
             <div class="message">
                 <p id="msg">Item has been added successfully</p>
             </div>
-
+   
             <form class="product-form" action="/create-envelope" method="POST">
                 <input type="text" name="category" placeholder="Category Name">
                 <input type="number" name="totalAmount" placeholder="total Amount">
