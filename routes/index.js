@@ -7,7 +7,7 @@ router.post('/create-envelope', indexController.createEnvelope);
 router.get('/get-envelopes', indexController.getEnvelopes);
 router.get('/get-updateenvelope', indexController.getUpdateEnvelopes);
 
-router.put('/update-envelope', indexController.updateEnvelope);
+router.post('/update-envelope/', indexController.updateEnvelope);
 
 
 
