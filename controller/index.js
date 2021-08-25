@@ -43,3 +43,34 @@ exports.getEnvelopes = async (req, res) => {
         res.status(400).json({ success: false, message: error });
     }
 }
+
+exports.getUpdateEnvelopes = async (req, res) => {
+    try {
+        res.render('envelope/update', {
+            title: 'Envelope Budgeting API',
+            path: '/get-updateenvelope',
+            pageName: 'Update an envelope',
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
+}
+
+exports.updateEnvelope = async (req, res) => {
+    try {
+        const { envelopeId, category, totalAmount, spendingLimit  } = req.body;
+        const envelope = await Envelope.findOne({ where: { id: envelopeId } });
+        if(envelope) {
+            envelope.category = category;
+            envelope.totalAmount = totalAmount;
+            envelope.spendingLimit = spendingLimit;
+            envelope.save();
+            res.redirect('/get-envelopes');
+        }
+        return res.status(400).json({ success: false, message: `Envelope with id:${envelopeId} doesn't exist` });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ success: false, message: error });
+    }
+}
