@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { Transaction, Envelope } = require('../models');
+const { Transaction, Envelope } = require('../../models');
 app.use(express.json());
 
 exports.createTransaction = async (req, res) => {

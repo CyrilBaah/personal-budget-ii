@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { Envelope } = require('../models');
+const { Envelope } = require('../../models');
 app.use(express.json());
 
 exports.createEnvelope = async (req, res) => {
