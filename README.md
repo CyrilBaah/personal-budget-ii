@@ -1,5 +1,5 @@
 # Personal Budget II
-It is an extended version of [Personal Budget I](https:github.com/CyrilBaah/PersonalBudget). Which now includes an inteface for interaction and an additional feature to record transactions.
+It is an extended version of [Personal Budget I](https://github.com/CyrilBaah/Personal-Budget). Which now includes an inteface for interaction and an additional feature to record transactions.
 Using Envelope [Enveloping Budgeting](https://www.thebalance.com/what-is-envelope-budgeting-1293682),
 The API allow users to manage budget envelopes and track the balance of each envelope.
 
