@@ -3,6 +3,7 @@ const app = express();
 const { Envelope } = require('../../models');
 app.use(express.json());
 
+
 exports.createEnvelope = async (req, res) => {
     try {
         const { category, totalAmount, spendingLimit } = req.body;
@@ -22,6 +23,20 @@ exports.createEnvelope = async (req, res) => {
     }
 }
 
+/**
+ * @swagger
+ * /api/envelopes:
+ *    get:
+ *      summary: Get all enveloppes
+ *      produces:
+ *        - application/json
+ *      tags:
+ *        - Envelopes
+ *      responses:
+ *        "200":
+ *          description: Returns a list of all envelopes
+ *
+ */
 exports.getAllEnvelope = async (req, res) => {
     try {
         const envelopes = await Envelope.findAll();

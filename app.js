@@ -31,7 +31,7 @@ const swaggerDefinition = {
 
 const options = {
     swaggerDefinition,
-    apis: ["./controller/envelope.js", "./controller/transaction.js"]
+    apis: ["./controller/api/envelope.js", "./controller/api/transaction.js"]
 };
 
 const swaggerSpecification = swaggerJsDoc(options);
